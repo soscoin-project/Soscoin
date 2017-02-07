@@ -66,7 +66,7 @@ address. The same address can be used in more than one notification.
 
 For instance:
 
-    $ soscoind -zmqpubhashtx=tcp://127.0.0.1:25552 \
+    $ soscoind -zmqpubhashtx=tcp://127.0.0.1:250511 \
                -zmqpubrawtx=ipc:///tmp/soscoind.tx.raw
 
 Each PUB notification has a topic and body, where the header

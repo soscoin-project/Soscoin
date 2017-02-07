@@ -70,7 +70,7 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 0;
+        consensus.nSubsidyHalvingInterval = 1;
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
@@ -109,20 +109,16 @@ public:
         pchMessageStart[1] = 0xc0;
         pchMessageStart[2] = 0xb6;
         pchMessageStart[3] = 0xdb;
-        nDefaultPort = 5551;
+        nDefaultPort = 50510;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1485943894, 2084883123, 0x1e0ffff0, 1, 505505 * COIN);
+        genesis = CreateGenesisBlock(1486123442, 2084576295, 0x1e0ffff0, 1, 505505 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0xe8126b138d02cd78241a4f3e872e6b562fee2d9e077d6571d8791d9525ab89f5"));
+        assert(consensus.hashGenesisBlock == uint256S("0x5a06285ca7d0723c6ccb7a892b54252fc58b5547978610ddeb6fc4a6e60bb716"));
         assert(genesis.hashMerkleRoot == uint256S("0x59219cf6af7021318163e11cc8c75e015724cebb2210e866715190a9b9021ada"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.push_back(CDNSSeedData("loshan.co.uk", "seed-a.soscoin.loshan.co.uk", true));
-        vSeeds.push_back(CDNSSeedData("thrasher.io", "dnsseed.thrasher.io", true));
-        vSeeds.push_back(CDNSSeedData("soscointools.com", "dnsseed.soscointools.com"));
-        vSeeds.push_back(CDNSSeedData("soscoinpool.org", "dnsseed.soscoinpool.org"));
-        vSeeds.push_back(CDNSSeedData("koin-project.com", "dnsseed.koin-project.com"));
+        vSeeds.push_back(CDNSSeedData("soscoin.com", "78.113.252.129", true));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,125);
@@ -132,7 +128,7 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-        fMiningRequiresPeers = false;
+        fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
@@ -207,19 +203,18 @@ public:
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        nDefaultPort = 15551;
+        nDefaultPort = 150510;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1485943894, 385864152, 0x1e0ffff0, 1, 505505 * COIN);
+        genesis = CreateGenesisBlock(1486123442, 387531787, 0x1e0ffff0, 1, 505505 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0xb45bac9f0699813b13a0cacf94445964fe862df4db9342f2af230740b4b3bb70"));
+        assert(consensus.hashGenesisBlock == uint256S("0x2a05121a0fb8ffb6495d4d58ba78a40384742fe090818b4dc67316341dbd6ad7"));
         assert(genesis.hashMerkleRoot == uint256S("0x59219cf6af7021318163e11cc8c75e015724cebb2210e866715190a9b9021ada"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("soscointools.com", "testnet-seed.soscointools.com"));
-        vSeeds.push_back(CDNSSeedData("loshan.co.uk", "seed-b.soscoin.loshan.co.uk", true));
+        vSeeds.push_back(CDNSSeedData("soscoin.com", "78.113.252.129", true));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -288,9 +283,9 @@ public:
         nDefaultPort = 19444;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1485943894, 0, 0x207fffff, 1, 505505 * COIN);
+        genesis = CreateGenesisBlock(1486123442, 1, 0x207fffff, 1, 505505 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x6d347bf2443f964731b30d5c00f09ba53d170db056c5ba2530759a0e2cc4747e"));
+        assert(consensus.hashGenesisBlock == uint256S("0x2b1892cd42537f3763acb84bbf6d873eae8f02f28f2975109bb318a4b1e37e6f"));
         assert(genesis.hashMerkleRoot == uint256S("0x59219cf6af7021318163e11cc8c75e015724cebb2210e866715190a9b9021ada"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.

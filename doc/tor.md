@@ -42,11 +42,11 @@ reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equiv
 config file):
 
 	HiddenServiceDir /var/lib/tor/soscoin-service/
-	HiddenServicePort 5551 127.0.0.1:5551
-	HiddenServicePort 15551 127.0.0.1:15551
+	HiddenServicePort 50510 127.0.0.1:50510
+	HiddenServicePort 150510 127.0.0.1:150510
 
 The directory can be different of course, but (both) port numbers should be equal to
-your soscoind's P2P listen port (5551 by default).
+your soscoind's P2P listen port (50510 by default).
 
 	-externalip=X   You can tell soscoin about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
@@ -81,7 +81,7 @@ as well, use `discover` instead:
 
 	./soscoind ... -discover
 
-and open port 5551 on your firewall (or use -upnp).
+and open port 50510 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:

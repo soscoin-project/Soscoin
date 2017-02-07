@@ -56,11 +56,11 @@ BOOST_AUTO_TEST_CASE(DoS_banning)
     CAddress addr2(ip(0xa0b0c002), NODE_NONE);
     CNode dummyNode2(INVALID_SOCKET, addr2, "", true);
     dummyNode2.nVersion = 1;
-    Misbehaving(dummyNode2.GetId(), 505505);
+    Misbehaving(dummyNode2.GetId(), 50);
     SendMessages(&dummyNode2);
     BOOST_CHECK(!CNode::IsBanned(addr2)); // 2 not banned yet...
     BOOST_CHECK(CNode::IsBanned(addr1));  // ... but 1 still should be
-    Misbehaving(dummyNode2.GetId(), 505505);
+    Misbehaving(dummyNode2.GetId(), 50);
     SendMessages(&dummyNode2);
     BOOST_CHECK(CNode::IsBanned(addr2));
 }
